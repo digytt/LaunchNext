@@ -137,7 +137,7 @@ struct LaunchpadView: View {
     }
 
     private var backdropOpacity: Double {
-        appStore.isFullscreenMode ? (colorScheme == .dark ? 0.60 : 0.78) : 0.0
+        appStore.isFullscreenMode ? 0.1 : 0.0
     }
 
     var filteredItems: [LaunchpadItem] {
@@ -315,11 +315,6 @@ struct LaunchpadView: View {
                 )
                 .opacity(isFolderOpen ? 0.1 : 1)
                 .allowsHitTesting(!isFolderOpen)
-                
-                Divider()
-                    .foregroundStyle(.placeholder)
-                    .padding()
-                    .opacity(isFolderOpen ? 0.1 : 1)
                 
                 GeometryReader { geo in
                     let appCountPerRow = config.columns
@@ -523,8 +518,8 @@ struct LaunchpadView: View {
         .glassEffect(in: RoundedRectangle(cornerRadius: appStore.isFullscreenMode ? 0 : 30))
         .background(
             appStore.isFullscreenMode
-                ? Color.black.opacity(backdropOpacity)
-                : Color.clear
+            ? Color.black.opacity(0.1)
+            : Color.clear
         )
         .ignoresSafeArea()
         .overlay(
